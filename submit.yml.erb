@@ -5,7 +5,6 @@
 batch_connect:
   template: vnc
 script:
-  accounting_id: "<%= account %>"
   native:
     <%- args.each do |arg| -%>
     - "<%= arg %>"

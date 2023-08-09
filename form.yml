@@ -1,0 +1,10 @@
+---
+cluster: "owens"
+form:
+  - cluster
+  - auto_accounts
+  - bc_num_hours
+  - bc_vnc_resolution
+attributes:
+  bc_vnc_resolution:
+    required: true
