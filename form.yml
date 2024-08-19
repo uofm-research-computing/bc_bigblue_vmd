@@ -1,7 +1,8 @@
 ---
-cluster: "owens"
+cluster:
+  - "owens"
+  - "cardinal"
 form:
-  - cluster
   - auto_accounts
   - bc_num_hours
   - bc_vnc_resolution

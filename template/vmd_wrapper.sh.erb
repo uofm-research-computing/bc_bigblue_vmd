@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Load the required environment
+<%- if context.cluster == 'owens' -%>
+module load xalt/latest intel/16.0.3 virtualgl vmd/1.9.4
+<%- else -%>
+module load xalt/latest virtualgl vmd
+<%- end -%>
+
+module list
+
+# Launch VMD
+vglrun vmd
