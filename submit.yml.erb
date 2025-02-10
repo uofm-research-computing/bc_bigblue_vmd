@@ -1,15 +1,14 @@
 <%-
-  args =  if cluster == 'owens'
-            [ "--partition", "quick", "--nodes", "1", "--ntasks-per-node", "1" ]
-          else
-            ["--gres", "vis", "--nodes", "1", "--ntasks-per-node", "1", "--gpus", "1"]
-          end
+  
+  partition = partitions_list == "any" ? "icomputeq,igpuq,ibigmemq,acomputeq,agpuq,abigmemq" : "#{partitions_list}"
+  slurm_args = [ "--nodes", "1", "--cpus-per-task", "#{num_cores}", "--mem", "#{alloc_mem}G", "--partition", partition ]
+  
 -%>
 ---
 batch_connect:
   template: vnc
 script:
   native:
-    <%- args.each do |arg| -%>
+    <%- slurm_args.each do |arg| -%>
     - "<%= arg %>"
     <%- end -%>

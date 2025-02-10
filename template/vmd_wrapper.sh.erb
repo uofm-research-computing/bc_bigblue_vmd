@@ -1,11 +1,11 @@
 #!/bin/bash
 
+# This doesn't currently work
+# Need to setup virtualgl correctly or something
+# I do have x86_64 mesa library with llvmpipe though...
+
 # Load the required environment
-<%- if context.cluster == 'owens' -%>
-module load xalt/latest intel/16.0.3 virtualgl vmd/1.9.4
-<%- else -%>
-module load xalt/latest virtualgl vmd
-<%- end -%>
+module load vmd virtualgl
 
 module list
 
